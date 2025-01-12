@@ -1,0 +1,35 @@
+body {
+    font-family: Roboto, Arial, sans-serif;
+    background-color: #fff8f0;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    padding: 10px 25px;
+    margin: 10px;
+    background-color: #92140c;
+    color: #fff8f0;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 24px;
+    transition: all 0.25s;
+}
+button:hover {
+    background-color: #1e1e24;
+}
+h1, #result{
+    text-align: center;
+    color: #1e1e24;
+}
+
+#result {
+    margin-top: 40px;
+    font-weight: 600;
+    font-size: 24px;
+}
