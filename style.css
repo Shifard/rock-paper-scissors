@@ -1,33 +1,3 @@
 body {
-  font-family: Tahoma, sans-serif;
-  font-weight: bold;
-  background-image: url('https://static.vecteezy.com/system/resources/previews/000/691/499/non_2x/rock-paper-scissors-seamless-pattern-vector.png');
-  background-size: 100%;
-  z-index: -1;
-}
-h1 {
-  text-align: center;
-
-}
-#container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 50px auto;
-}
-#container > button {
   background-color: black;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  cursor: pointer;
-  z-index: 2;
-}
-#result {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  color: white;
-  height: 40px;
 }
