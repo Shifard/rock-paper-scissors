@@ -1,3 +1,15 @@
+const heading = document.querySelector('h1');
+heading.textContent = 'ROCK, PAPER, SCISSORS';
+const buttons = document.querySelectorAll('button');
+const result = document.querySelector('.result');
+
+buttons.forEach(button =>{
+  button.addEventListener('click', () => {
+    let humanChoice = button.textContent;
+    result.innerHTML = playRound(humanChoice, getComputerChoice());
+  })
+})
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -12,64 +24,63 @@ function getComputerChoice () {
   }
 }
 
-function getHumanChoice () {
-  let humanChoice = prompt("Rock, Paper, Scissors?", '');
-  return humanChoice;
-}
 
 function playRound (humanChoice, computerChoice) {
-  humanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
-
+  while (humanScore < 5 && computerScore < 5){
   if(humanChoice == 'Rock') {
     if (computerChoice == 'Rock') {
-      return `It's a tie!\nHuman - ${humanScore} \t ${computerScore} - Computer`;
+      return `It's a tie!
+      Human - ${humanScore}     ${computerScore} - Computer`;
     } else if (computerChoice == 'Paper') {
       computerScore++;
-      return `You lose! ${computerChoice} beats ${humanChoice}\nHuman - ${humanScore} \t ${computerScore} - Computer`;
+      return `You lose! ${computerChoice} beats ${humanChoice}
+      Human - ${humanScore}     ${computerScore} - Computer`;
     } else if (computerChoice == 'Scissors') {
       humanScore++;
-      return `You win! ${humanChoice} beats ${computerChoice}\nHuman - ${humanScore} \t ${computerScore} - Computer`;
+      return `You win! ${humanChoice} beats ${computerChoice}
+      Human - ${humanScore}     ${computerScore} - Computer`;
     }
   } 
   else if (humanChoice == 'Paper') {
     if (computerChoice == 'Rock') {
       humanScore++;
-      return `You win! ${humanChoice} beats ${computerChoice}\nHuman - ${humanScore} \t ${computerScore} - Computer`;
+      return `You win! ${humanChoice} beats ${computerChoice}
+      Human - ${humanScore}     ${computerScore} - Computer`;
     } else if (computerChoice == 'Paper') {
-      return `It's a tie!\nHuman - ${humanScore} \t ${computerScore} - Computer`;
+      return `It's a tie!
+      Human - ${humanScore}     ${computerScore} - Computer`;
     } else if (computerChoice == 'Scissors') {
       computerScore++;
-      return `You lose! ${computerChoice} beats ${humanChoice}\nHuman - ${humanScore} \t ${computerScore} - Computer`;
+      return `You lose! ${computerChoice} beats ${humanChoice}
+      Human - ${humanScore}     ${computerScore} - Computer`;
     }
   } 
   else if (humanChoice == 'Scissors') {
     if (computerChoice == 'Rock') {
       computerScore++;
-      return `You lose! ${computerChoice} beats ${humanChoice}\nHuman - ${humanScore} \t ${computerScore} - Computer`;
+      return `You lose! ${computerChoice} beats ${humanChoice}
+      Human - ${humanScore}     ${computerScore} - Computer`;
     } else if (computerChoice == 'Paper') {
       humanScore++;
-      return `You win! ${humanChoice} beats ${computerChoice}\nHuman - ${humanScore} \t ${computerScore} - Computer`;
+      return `You win! ${humanChoice} beats ${computerChoice}
+      Human - ${humanScore}     ${computerScore} - Computer`;
     } else if (computerChoice == 'Scissors') {
-      return `It's a tie!\nHuman - ${humanScore} \t ${computerScore} - Computer`;
+      return `It's a tie!
+      Human - ${humanScore}     ${computerScore} - Computer`;
     }
   }
 }
 
-function playGame () {
-  let rounds = 5;
-
-  while (rounds != 0) {
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-    rounds--;
-  }
-
-  if (humanScore > computerScore) {
-    console.log(`Winner: Human`);
-  } else if (humanScore < computerScore) {
-    console.log(`Winner: Computer`);
-  } else {
-    console.log(`Tie`);
+  if (humanScore == 5) {
+    alert(`You win!`);
+    alert(`Human - ${humanScore} \t ${computerScore} - Computer`);
+    return `You win! THE END`
+  } else if (computerScore == 5) {
+    alert(`You lose!`);
+    alert(`Human - ${humanScore} \t ${computerScore} - Computer`);
+    return `You lose! THE END`
   }
 }
 
-playGame();
+
+
